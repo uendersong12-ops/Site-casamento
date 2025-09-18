@@ -1,127 +1,221 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="stylesheet" href="style.css?v=2">
-
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Lista de Presentes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e35336; /* fundo terracota */ 
-      padding: 20px;
+    :root{
+      --terracota: #e35336;
+      --terracota-dark: #bf2f1f;
+      --terracota-darker: #9b2415;
+      --branco: #ffffff;
+      --cinza-claro: #f9f9f9;
+      --texto-claro: #f5f5f5;
+    }
+
+    /* Layout */
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--terracota);
+      padding: 30px 16px;
+      margin: 0;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto;
     }
 
-    /* Título */
-    h1 {
+    h1{
       text-align: center;
-      color: #fff; /* título branco */
+      color: var(--branco);
+      margin: 6px 0 8px;
+      font-size: 2.2rem;
     }
 
-    /* Mensagem */
-    .mensagem {
-      text-align: center;
-      font-size: 1.2em;
+    .mensagem{
+      text-align:center;
+      color: var(--texto-claro);
       margin-bottom: 20px;
-      color: #f5f5f5; /* texto claro */
+      font-size: 1.05rem;
+      line-height:1.4;
     }
 
     /* Tabela */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background-color: #fff; /* fundo branco */
+    .table-wrap{
+      background: var(--branco);
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      overflow: auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      margin-top: 22px;
     }
 
-    th, td {
-      padding: 12px;
-      border: 1px solid #ddd;
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 760px; /* evita quebrar layout em desktop */
+    }
+
+    th, td{
+      padding: 14px 16px;
+      border-bottom: 1px solid #e6e6e6;
       text-align: left;
       vertical-align: middle;
     }
 
-    /* Cabeçalho da tabela */
-    th {
-      background-color: #bf2f1f; /* terracota mais escuro */
-      color: white;
+    th{
+      background-color: var(--terracota-dark) !important;
+      color: var(--branco) !important;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 0.9rem;
+      letter-spacing: 0.8px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9; /* linhas pares cinza claro */
+    tr:nth-child(even) td{
+      background-color: var(--cinza-claro);
     }
 
-    /* Botões */
-    button {
-      padding: 6px 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #218838;
-    }
-
-    /* Imagens */
-    img {
-      max-width: 80px;
+    /* Coluna imagem */
+    td img{
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
       border-radius: 6px;
+      display: block;
+    }
+
+    /* Botão reservar (estilo terracota) */
+    .btn-reservar{
+      display:inline-block;
+      padding:8px 12px;
+      background: var(--terracota-dark);
+      color: var(--branco);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background .15s ease;
+    }
+
+    .btn-reservar:hover{
+      background: var(--terracota-darker);
+    }
+
+    /* Responsivo */
+    @media (max-width: 760px){
+      th, td{ padding:10px; font-size: 0.95rem; }
+      td img{ width:60px; height:48px; }
+      .mensagem{ font-size: 1rem; padding: 0 8px; }
     }
   </style>
 </head>
 <body>
-  <h1>🎁 Lista de Presentes</h1>
-  <div class="mensagem">
-    Bem-vindo à nossa lista de presentes! Escolha um item para nos ajudar a montar nosso lar com carinho. 
-    Ao reservar, seu nome será salvo de forma privada. 💖
+  <div class="container">
+    <h1>🎁 Lista de Presentes</h1>
+    <div class="mensagem">
+      Bem-vindo à nossa lista de presentes! Escolha um item para nos ajudar a montar nosso lar com carinho.
+      Ao reservar, seu nome será salvo de forma privada. 💖
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="Tabela de presentes">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Item</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-presentes"></tbody>
+      </table>
+    </div>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Imagem</th>
-        <th>Item</th>
-        <th>Valor</th>
-        <th>Status</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody id="tabela-presentes"></tbody>
-  </table>
-
   <script>
+    // === Lista completa de presentes ===
     let presentes = [
-      { nome: "Jogo de panelas", valor: "R$ 120,00", reservado: false, reservadoPor: "", imagem: "panelas.jpg" },
+      // Itens do print
+      { nome: "Jogo de panelas", valor: "R$ 120,00", reservado: false, reservadoPor: "", imagem: "jogo de panelas.jpg" },
       { nome: "Toalhas de banho", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "toalhas.jpg" },
       { nome: "Faqueiro", valor: "R$ 90,00", reservado: false, reservadoPor: "", imagem: "faqueiro.jpg" },
       { nome: "Jogo de cama", valor: "R$ 110,00", reservado: false, reservadoPor: "", imagem: "lencois.jpg" },
-      { nome: "Cafeteira elétrica", valor: "R$ 160,00", reservado: false, reservadoPor: "", imagem: "cafeteira.jpg" }
-      // ... (seus outros itens continuam aqui)
+      { nome: "Cafeteira elétrica", valor: "R$ 160,00", reservado: false, reservadoPor: "", imagem: "cafeteira.jpg" },
+
+      // Cozinha
+      { nome: "Micro-ondas", valor: "R$ 500,00", reservado: false, reservadoPor: "", imagem: "microondas.jpg" },
+      { nome: "Geladeira", valor: "R$ 5.000,00", reservado: false, reservadoPor: "", imagem: "geladeira.jpg" },
+      { nome: "Fogão de Embutir", valor: "R$ 1.000,00", reservado: false, reservadoPor: "", imagem: "fogao.jpg" },
+      { nome: "Batedeira", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "batedeira.jpg" },
+      { nome: "Panela de pressão 10L", valor: "R$ 200,00", reservado: false, reservadoPor: "", imagem: "pressao10l.jpg" },
+      { nome: "Panela de pressão elétrica", valor: "R$ 400,00", reservado: false, reservadoPor: "", imagem: "pressaoeletrica.jpg" },
+      { nome: "Frigideira", valor: "R$ 45,00", reservado: false, reservadoPor: "", imagem: "frigideira.jpg" },
+      { nome: "Conjunto de talheres de inox", valor: "R$ 72,65", reservado: false, reservadoPor: "", imagem: "talheres.jpg" },
+      { nome: "Faqueiro 2x", valor: "R$ 72,65", reservado: false, reservadoPor: "", imagem: "faqueiro2.jpg" },
+      { nome: "Utensílios de silicone ou inox", valor: "R$ 100,00", reservado: false, reservadoPor: "", imagem: "utensilios.jpg" },
+      { nome: "Tábua de corte", valor: "R$ 30,00", reservado: false, reservadoPor: "", imagem: "tabua.jpg" },
+      { nome: "Travessa de vidro", valor: "R$ 35,00", reservado: false, reservadoPor: "", imagem: "travessa.jpg" },
+      { nome: "Espremedor de frutas", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "espremedor.jpg" },
+      { nome: "Sanduicheira", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "sanduicheira.jpg" },
+      { nome: "Conjunto de pratos 2x", valor: "R$ 100,00", reservado: false, reservadoPor: "", imagem: "pratos.jpg" },
+      { nome: "Copos 3x", valor: "R$ 30,00", reservado: false, reservadoPor: "", imagem: "copos.jpg" },
+      { nome: "Taças 2x", valor: "R$ 50,00", reservado: false, reservadoPor: "", imagem: "tacas.jpg" },
+      { nome: "Potes de vidro herméticos", valor: "R$ 89,90", reservado: false, reservadoPor: "", imagem: "poteshermeticos.jpg" },
+      { nome: "Potes de vidro", valor: "R$ 50,00", reservado: false, reservadoPor: "", imagem: "potes.jpg" },
+      { nome: "Jarra 4x", valor: "R$ 55,90", reservado: false, reservadoPor: "", imagem: "jarra.jpg" },
+      { nome: "Forma de bolo", valor: "R$ 27,00", reservado: false, reservadoPor: "", imagem: "formabolo.jpg" },
+      { nome: "Forma de pudim", valor: "R$ 27,00", reservado: false, reservadoPor: "", imagem: "formapudim.jpg" },
+      { nome: "Escorredor de louças", valor: "R$ 139,00", reservado: false, reservadoPor: "", imagem: "escorredor.jpg" },
+      { nome: "Lixeira (cozinha)", valor: "R$ 89,99", reservado: false, reservadoPor: "", imagem: "lixeiracozinha.jpg" },
+
+      // Lavanderia
+      { nome: "Lava e Seca", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "lavaeseca.jpg" },
+      { nome: "Varal de parede", valor: "R$ 75,00", reservado: false, reservadoPor: "", imagem: "varalparede.jpg" },
+      { nome: "Varal de chão", valor: "R$ 95,00", reservado: false, reservadoPor: "", imagem: "varalchao.jpg" },
+      { nome: "Robô aspirador", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "robo.jpg" },
+      { nome: "Aspirador vertical", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "aspirador.jpg" },
+      { nome: "Ferro de passar roupa", valor: "R$ 89,90", reservado: false, reservadoPor: "", imagem: "ferro.jpg" },
+
+      // Sala
+      { nome: "Sofá retrátil (sem caixa)", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "sofa.jpg" },
+      { nome: "Mantas e almofadas para o sofá", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "mantas.jpg" },
+      { nome: "Painel de TV", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "painel.jpg" },
+      { nome: "TV", valor: "—", reservado: false, reservadoPor: "", imagem: "tv.jpg" },
+      { nome: "Mesa (4 lugares)", valor: "R$ 700,00", reservado: false, reservadoPor: "", imagem: "mesa.jpg" },
+
+      // Quarto
+      { nome: "Cama", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "cama.jpg" },
+      { nome: "Guarda-roupas", valor: "R$ 800,00", reservado: false, reservadoPor: "", imagem: "guarda.jpg" },
+      { nome: "Jogo de cama (3x)", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "jogocama.jpg" }
     ];
 
+    // === Funções de persistência e renderização ===
     function carregarPresentes() {
+      if (typeof window === "undefined") return;
       const dados = localStorage.getItem("presentes");
       if (dados) {
         try {
-          presentes = JSON.parse(dados);
-        } catch (error) {
-          console.error("Erro ao carregar presentes do localStorage:", error);
-          presentes = [];
+          const parsed = JSON.parse(dados);
+          // só substitui se for array e tiver itens
+          if (Array.isArray(parsed) && parsed.length) {
+            presentes = parsed;
+          }
+        } catch (err) {
+          console.error("Erro ao parsear localStorage:", err);
         }
       }
     }
 
     function salvarPresentes() {
+      if (typeof window === "undefined") return;
       localStorage.setItem("presentes", JSON.stringify(presentes));
     }
 
@@ -132,24 +226,31 @@
       presentes.forEach((item, index) => {
         const tr = document.createElement("tr");
 
+        // imagem
         const tdImagem = document.createElement("td");
         const img = document.createElement("img");
+        // caminho: pasta "imagens" na raiz do projeto
         img.src = "imagens/" + (item.imagem || "placeholder.jpg");
         img.alt = item.nome;
         tdImagem.appendChild(img);
 
+        // nome
         const tdNome = document.createElement("td");
         tdNome.textContent = item.nome;
 
+        // valor
         const tdValor = document.createElement("td");
         tdValor.textContent = item.valor;
 
+        // status
         const tdStatus = document.createElement("td");
         tdStatus.textContent = item.reservado ? "Reservado ✅" : "Disponível 🎁";
 
+        // ação
         const tdAcao = document.createElement("td");
         if (!item.reservado) {
           const botao = document.createElement("button");
+          botao.className = "btn-reservar";
           botao.textContent = "Reservar";
           botao.onclick = () => reservarPresente(index);
           tdAcao.appendChild(botao);
@@ -169,7 +270,7 @@
 
     function reservarPresente(index) {
       const nome = prompt("Digite seu nome para reservar este presente:");
-      if (!nome || nome.trim() === "") {
+      if (!nome || !nome.trim()) {
         alert("Reserva cancelada. Nome é obrigatório.");
         return;
       }
@@ -179,8 +280,19 @@
       carregarTabela();
     }
 
-    carregarPresentes();
-    carregarTabela();
+    // opcional: função para ver reservas no console
+    function mostrarReservasPrivadas() {
+      console.log("Reservas privadas:");
+      presentes.forEach(p => {
+        if (p.reservado) console.log(`${p.nome} — ${p.reservadoPor}`);
+      });
+    }
+
+    // inicializa após DOM pronto
+    document.addEventListener("DOMContentLoaded", () => {
+      carregarPresentes();
+      carregarTabela();
+    });
   </script>
 </body>
 </html>
