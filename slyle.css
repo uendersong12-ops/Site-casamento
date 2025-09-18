@@ -1,48 +1,68 @@
-ul {
-  list-style: none;
+body {
+  background-color: #e74c3c;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
   padding: 0;
 }
 
-li {
-  margin: 10px 0;
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Carrossel */
+.swiper {
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 40px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Lista de presentes */
+.lista-container {
+  margin: 40px auto;
+  max-width: 800px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: #333;
+  text-align: left;
+}
+
+#lista-presentes li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
   font-size: 18px;
 }
 
-button {
-  margin-left: 10px;
-  padding: 6px 12px;
-  background-color: #d2691e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+#lista-presentes li:last-child {
+  border-bottom: none;
 }
 
-button:hover {
-  background-color: #a0522d;
-}
-
-.flex-box {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.lista, .assinatura {
-  flex: 1;
-  min-width: 300px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  box-sizing: border-box;
-}
-
-button {
-  margin-top: 10px;
+#lista-presentes button {
   padding: 8px 16px;
   background-color: #d2691e;
   color: white;
@@ -51,55 +71,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #a0522d;
-}
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.flex-box {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.lista, .assinatura {
-  flex: 1;
-  min-width: 300px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  box-sizing: border-box;
-}
-
-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #d2691e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
+#lista-presentes button:hover {
   background-color: #a0522d;
 }
