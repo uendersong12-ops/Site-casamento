@@ -23,11 +23,30 @@ body {
 
 /* Imagens grandes tipo banner */
 .swiper-slide img {
-  width: 100%;         !important /* Faz ocupar toda a largura disponível */
-  max-width: 1200px;   !important /* Limita em telas muito grandes */
-  height: 500px;       !important /* Altura fixa para efeito banner */
+  width: 100%;         /* Faz ocupar toda a largura disponível */
+  max-width: 1200px;   /* Limita em telas muito grandes */
+  height: 500px;       /* Altura fixa para efeito banner */
   object-fit: cover;   /* Preenche sem distorcer */
   border-radius: 12px; /* Cantos arredondados bonitos */
+}
+/* Botões de navegação do carrossel */
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(255, 255, 255, 0.6); /* branco com 60% opacidade */
+  transition: color 0.3s ease;
+}
+
+/* Ao passar o mouse, mais forte */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.6); /* brancos meio transparentes */
+}
+
+.swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.9); /* mais forte quando ativo */
 }
 
 
