@@ -35,18 +35,26 @@ body {
   color: rgba(255, 255, 255, 0.6); /* branco com 60% opacidade */
   transition: color 0.3s ease;
 }
+.mySwiper {
+  --swiper-navigation-color: rgba(255,255,255,0.7);
+  --swiper-pagination-color: rgba(255,255,255,0.7);
+}
 
 /* Ao passar o mouse, mais forte */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: rgba(255, 255, 255, 0.9);
 }
+.mySwiper:hover {
+  --swiper-navigation-color: rgba(255,255,255,1);
+  --swiper-pagination-color: rgba(255,255,255,1);
+}
 .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.6) !important;  /* brancos meio transparentes */
+  background: rgba(255, 255, 255, 0.6)   /* brancos meio transparentes */
 }
 
 .swiper-pagination-bullet-active {
-  background: rgba(255, 255, 255, 0.9) !important; /* mais forte quando ativo */
+  background: rgba(255, 255, 255, 0.9)  /* mais forte quando ativo */
 }
 
 
