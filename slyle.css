@@ -54,7 +54,6 @@ button {
 button:hover {
   background-color: #a0522d;
 }
-
 .container {
   max-width: 1000px;
   margin: auto;
@@ -103,38 +102,4 @@ button {
 
 button:hover {
   background-color: #a0522d;
-}
-
-/* Estilos do carrossel de imagens */
-.swiper {
-  width: 90%;        
-  max-width: 1200px; 
-  height: 500px;     
-  margin: 20px auto; 
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   
-   display: block;
-}
-
-/* Botões do carrossel */
-.swiper-button-next,
-.swiper-button-prev {
-  color: white;        
-  text-shadow: 0px 0px 5px black; 
-}
-#lista-presentes {
-  margin-top: 40px;
 }
