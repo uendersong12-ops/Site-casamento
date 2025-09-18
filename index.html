@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Lista de Presentes</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
     :root{
       --terracota: #e35336;
@@ -43,6 +47,23 @@
       margin-bottom: 20px;
       font-size: 1.05rem;
       line-height:1.4;
+    }
+
+    /* Carrossel */
+    .swiper {
+      width: 100%;
+      max-width: 900px;
+      height: 350px;
+      margin: 20px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Tabela */
@@ -113,6 +134,7 @@
       th, td{ padding:10px; font-size: 0.95rem; }
       td img{ width:60px; height:48px; }
       .mensagem{ font-size: 1rem; padding: 0 8px; }
+      .swiper { height: 220px; }
     }
   </style>
 </head>
@@ -122,6 +144,22 @@
     <div class="mensagem">
       Bem-vindo à nossa lista de presentes! Escolha um item para nos ajudar a montar nosso lar com carinho.
       Ao reservar, seu nome será salvo de forma privada. 💖
+    </div>
+
+    <!-- Carrossel -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="imagens/sofa.jpg" alt="Sofá"></div>
+        <div class="swiper-slide"><img src="imagens/cama.jpg" alt="Cama"></div>
+        <div class="swiper-slide"><img src="imagens/geladeira.jpg" alt="Geladeira"></div>
+        <div class="swiper-slide"><img src="imagens/fogao.jpg" alt="Fogão"></div>
+        <div class="swiper-slide"><img src="imagens/tv.jpg" alt="TV"></div>
+      </div>
+      <!-- Botões de navegação -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Paginação -->
+      <div class="swiper-pagination"></div>
     </div>
 
     <div class="table-wrap">
@@ -140,17 +178,34 @@
     </div>
   </div>
 
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
   <script>
     // === Lista completa de presentes ===
     let presentes = [
-      // Itens do print
       { nome: "Jogo de panelas", valor: "R$ 120,00", reservado: false, reservadoPor: "", imagem: "jogo de panelas.jpg" },
       { nome: "Toalhas de banho", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "toalhas.jpg" },
       { nome: "Faqueiro", valor: "R$ 90,00", reservado: false, reservadoPor: "", imagem: "faqueiro.jpg" },
       { nome: "Jogo de cama", valor: "R$ 110,00", reservado: false, reservadoPor: "", imagem: "lencois.jpg" },
       { nome: "Cafeteira elétrica", valor: "R$ 160,00", reservado: false, reservadoPor: "", imagem: "cafeteira.jpg" },
-
-      // Cozinha
       { nome: "Micro-ondas", valor: "R$ 500,00", reservado: false, reservadoPor: "", imagem: "microondas.jpg" },
       { nome: "Geladeira", valor: "R$ 5.000,00", reservado: false, reservadoPor: "", imagem: "geladeira.jpg" },
       { nome: "Fogão de Embutir", valor: "R$ 1.000,00", reservado: false, reservadoPor: "", imagem: "fogao.jpg" },
@@ -175,23 +230,17 @@
       { nome: "Forma de pudim", valor: "R$ 27,00", reservado: false, reservadoPor: "", imagem: "formapudim.jpg" },
       { nome: "Escorredor de louças", valor: "R$ 139,00", reservado: false, reservadoPor: "", imagem: "escorredor.jpg" },
       { nome: "Lixeira (cozinha)", valor: "R$ 89,99", reservado: false, reservadoPor: "", imagem: "lixeiracozinha.jpg" },
-
-      // Lavanderia
       { nome: "Lava e Seca", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "lavaeseca.jpg" },
       { nome: "Varal de parede", valor: "R$ 75,00", reservado: false, reservadoPor: "", imagem: "varalparede.jpg" },
       { nome: "Varal de chão", valor: "R$ 95,00", reservado: false, reservadoPor: "", imagem: "varalchao.jpg" },
       { nome: "Robô aspirador", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "robo.jpg" },
       { nome: "Aspirador vertical", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "aspirador.jpg" },
       { nome: "Ferro de passar roupa", valor: "R$ 89,90", reservado: false, reservadoPor: "", imagem: "ferro.jpg" },
-
-      // Sala
       { nome: "Sofá retrátil (sem caixa)", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "sofa.jpg" },
       { nome: "Mantas e almofadas para o sofá", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "mantas.jpg" },
       { nome: "Painel de TV", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "painel.jpg" },
       { nome: "TV", valor: "—", reservado: false, reservadoPor: "", imagem: "tv.jpg" },
       { nome: "Mesa (4 lugares)", valor: "R$ 700,00", reservado: false, reservadoPor: "", imagem: "mesa.jpg" },
-
-      // Quarto
       { nome: "Cama", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "cama.jpg" },
       { nome: "Guarda-roupas", valor: "R$ 800,00", reservado: false, reservadoPor: "", imagem: "guarda.jpg" },
       { nome: "Jogo de cama (3x)", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "jogocama.jpg" }
@@ -204,7 +253,6 @@
       if (dados) {
         try {
           const parsed = JSON.parse(dados);
-          // só substitui se for array e tiver itens
           if (Array.isArray(parsed) && parsed.length) {
             presentes = parsed;
           }
@@ -226,27 +274,21 @@
       presentes.forEach((item, index) => {
         const tr = document.createElement("tr");
 
-        // imagem
         const tdImagem = document.createElement("td");
         const img = document.createElement("img");
-        // caminho: pasta "imagens" na raiz do projeto
         img.src = "imagens/" + (item.imagem || "placeholder.jpg");
         img.alt = item.nome;
         tdImagem.appendChild(img);
 
-        // nome
         const tdNome = document.createElement("td");
         tdNome.textContent = item.nome;
 
-        // valor
         const tdValor = document.createElement("td");
         tdValor.textContent = item.valor;
 
-        // status
         const tdStatus = document.createElement("td");
         tdStatus.textContent = item.reservado ? "Reservado ✅" : "Disponível 🎁";
 
-        // ação
         const tdAcao = document.createElement("td");
         if (!item.reservado) {
           const botao = document.createElement("button");
@@ -280,7 +322,6 @@
       carregarTabela();
     }
 
-    // opcional: função para ver reservas no console
     function mostrarReservasPrivadas() {
       console.log("Reservas privadas:");
       presentes.forEach(p => {
@@ -288,7 +329,6 @@
       });
     }
 
-    // inicializa após DOM pronto
     document.addEventListener("DOMContentLoaded", () => {
       carregarPresentes();
       carregarTabela();
@@ -296,3 +336,4 @@
   </script>
 </body>
 </html>
+
