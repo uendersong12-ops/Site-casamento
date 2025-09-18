@@ -23,9 +23,9 @@ body {
 
 /* Imagens grandes tipo banner */
 .swiper-slide img {
-  width: 100%;         /* Faz ocupar toda a largura disponível */
-  max-width: 1200px;   /* Limita em telas muito grandes */
-  height: 500px;       /* Altura fixa para efeito banner */
+  width: 100%;         !important /* Faz ocupar toda a largura disponível */
+  max-width: 1200px;   !important /* Limita em telas muito grandes */
+  height: 500px;       !important /* Altura fixa para efeito banner */
   object-fit: cover;   /* Preenche sem distorcer */
   border-radius: 12px; /* Cantos arredondados bonitos */
 }
