@@ -14,28 +14,22 @@ body {
 }
 
 /* Carrossel */
-.swiper {
-  width: 100%;
-  max-width: 1000px;
-  height: 500px;
-  margin: 40px auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
+/* Slide centralizado */
 .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Imagens grandes tipo banner */
 .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%;         /* Faz ocupar toda a largura disponível */
+  max-width: 1200px;   /* Limita em telas muito grandes */
+  height: 500px;       /* Altura fixa para efeito banner */
+  object-fit: cover;   /* Preenche sem distorcer */
+  border-radius: 12px; /* Cantos arredondados bonitos */
 }
+
 
 /* Lista de presentes */
 .lista-container {
