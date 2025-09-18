@@ -8,142 +8,14 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <style>
-    :root{
-      --terracota: #e35336;
-      --terracota-dark: #bf2f1f;
-      --terracota-darker: #9b2415;
-      --branco: #ffffff;
-      --cinza-claro: #f9f9f9;
-      --texto-claro: #f5f5f5;
-    }
-
-    /* Layout */
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: var(--terracota);
-      padding: 30px 16px;
-      margin: 0;
-      color: #222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    .container{
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    h1{
-      text-align: center;
-      color: var(--branco);
-      margin: 6px 0 8px;
-      font-size: 2.2rem;
-    }
-
-    .mensagem{
-      text-align:center;
-      color: var(--texto-claro);
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-      line-height:1.4;
-    }
-
-    /* Carrossel */
-    .swiper {
-      width: 100%;
-      max-width: 900px;
-      height: 350px;
-      margin: 20px auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Tabela */
-    .table-wrap{
-      background: var(--branco);
-      border-radius: 8px;
-      overflow: auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      margin-top: 22px;
-    }
-
-    table{
-      width:100%;
-      border-collapse: collapse;
-      min-width: 760px; /* evita quebrar layout em desktop */
-    }
-
-    th, td{
-      padding: 14px 16px;
-      border-bottom: 1px solid #e6e6e6;
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    th{
-      background-color: var(--terracota-dark) !important;
-      color: var(--branco) !important;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 0.8px;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-    }
-
-    tr:nth-child(even) td{
-      background-color: var(--cinza-claro);
-    }
-
-    /* Coluna imagem */
-    td img{
-      width: 80px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 6px;
-      display: block;
-    }
-
-    /* Botão reservar (estilo terracota) */
-    .btn-reservar{
-      display:inline-block;
-      padding:8px 12px;
-      background: var(--terracota-dark);
-      color: var(--branco);
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background .15s ease;
-    }
-
-    .btn-reservar:hover{
-      background: var(--terracota-darker);
-    }
-
-    /* Responsivo */
-    @media (max-width: 760px){
-      th, td{ padding:10px; font-size: 0.95rem; }
-      td img{ width:60px; height:48px; }
-      .mensagem{ font-size: 1rem; padding: 0 8px; }
-      .swiper { height: 220px; }
-    }
-  </style>
+  <!-- Seu CSS local -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<div class="container">
-    <div class="noivos">
-     Uenderson & Jéssica
-    </div>
 <body>
-<!-- Carrossel -->
+  <div class="container">
+    <div class="noivos">Uenderson &amp; Jéssica</div>
+
+    <!-- Carrossel -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="imagens/1.jpg" alt="1"></div>
@@ -157,20 +29,20 @@
         <div class="swiper-slide"><img src="imagens/147.jpg" alt="147"></div>
         <div class="swiper-slide"><img src="imagens/156.jpg" alt="156"></div>
       </div>
-      <!-- Botões de navegação -->
+
+      <!-- navegação -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      <!-- Paginação -->
+
+      <!-- paginação -->
       <div class="swiper-pagination"></div>
     </div>
-  <div class="container">
-    <div class="mensagem">
-      Bem-vindo(a) à nossa Lista de Presentes!
-Desde já queremos agradecer, de coração, a cada um de vocês por fazer parte deste momento tão especial em nossas vidas.
-Para quem deseja nos presentear, criamos esta lista com muito carinho. Você pode escolher um dos itens sugeridos abaixo ou, se preferir, contribuir com qualquer valor.
-É importante lembrar que sua presença no nosso casamento é o maior presente que poderíamos receber e que não há qualquer obrigação de trazer um presente para participar.
-Muito obrigado por todo o carinho e apoio! 💖
+
+<div class="mensagem">
+      Bem-vindo(a) à nossa Lista de Presentes! Desde já queremos agradecer, de coração, a cada um de vocês por fazer parte deste momento tão especial em nossas vidas. Para quem deseja nos presentear, criamos esta lista com muito carinho. Você pode escolher um dos itens sugeridos abaixo ou, se preferir, contribuir com qualquer valor. É importante lembrar que sua presença no nosso casamento é o maior presente que poderíamos receber e que não há qualquer obrigação de trazer um presente para participar. Muito obrigado por todo o carinho e apoio! 
     </div>
+
+    <!-- Tabela -->
     <div class="table-wrap">
       <table aria-label="Tabela de presentes">
         <thead>
@@ -189,26 +61,20 @@ Muito obrigado por todo o carinho e apoio! 💖
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Inicializa o Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
+    const swiper = new Swiper('.mySwiper', {
       loop: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     });
   </script>
 
+  <!-- Script que carrega a lista, salva no localStorage e controla reservas -->
   <script>
-    // === Lista completa de presentes ===
+    // lista completa
     let presentes = [
       { nome: "Jogo de panelas", valor: "R$ 120,00", reservado: false, reservadoPor: "", imagem: "jogo de panelas.jpg" },
       { nome: "Toalhas de banho", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "toalhas.jpg" },
@@ -255,7 +121,7 @@ Muito obrigado por todo o carinho e apoio! 💖
       { nome: "Jogo de cama (3x)", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "jogocama.jpg" }
     ];
 
-    // === Funções de persistência e renderização ===
+    // persistência local
     function carregarPresentes() {
       if (typeof window === "undefined") return;
       const dados = localStorage.getItem("presentes");
@@ -276,6 +142,7 @@ Muito obrigado por todo o carinho e apoio! 💖
       localStorage.setItem("presentes", JSON.stringify(presentes));
     }
 
+    // renderiza tabela
     function carregarTabela() {
       const tabela = document.getElementById("tabela-presentes");
       tabela.innerHTML = "";
@@ -283,21 +150,26 @@ Muito obrigado por todo o carinho e apoio! 💖
       presentes.forEach((item, index) => {
         const tr = document.createElement("tr");
 
+        // imagem
         const tdImagem = document.createElement("td");
         const img = document.createElement("img");
         img.src = "imagens/" + (item.imagem || "placeholder.jpg");
         img.alt = item.nome;
         tdImagem.appendChild(img);
 
+        // nome
         const tdNome = document.createElement("td");
         tdNome.textContent = item.nome;
 
+        // valor
         const tdValor = document.createElement("td");
         tdValor.textContent = item.valor;
 
+        // status
         const tdStatus = document.createElement("td");
         tdStatus.textContent = item.reservado ? "Reservado ✅" : "Disponível 🎁";
 
+        // ação
         const tdAcao = document.createElement("td");
         if (!item.reservado) {
           const botao = document.createElement("button");
@@ -331,6 +203,7 @@ Muito obrigado por todo o carinho e apoio! 💖
       carregarTabela();
     }
 
+    // debug: ver reservas no console
     function mostrarReservasPrivadas() {
       console.log("Reservas privadas:");
       presentes.forEach(p => {
@@ -338,6 +211,7 @@ Muito obrigado por todo o carinho e apoio! 💖
       });
     }
 
+    // inicializa após DOM pronto
     document.addEventListener("DOMContentLoaded", () => {
       carregarPresentes();
       carregarTabela();
@@ -345,4 +219,3 @@ Muito obrigado por todo o carinho e apoio! 💖
   </script>
 </body>
 </html>
-

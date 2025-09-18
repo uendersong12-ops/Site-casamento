@@ -1,0 +1,180 @@
+:root {
+  --terracota: #e35336;
+  --terracota-dark: #bf2f1f;
+  --terracota-darker: #9b2415;
+  --branco: #ffffff;
+  --cinza-claro: #f9f9f9;
+  --texto-claro: #f5f5f5;
+}
+
+/* Layout geral */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--terracota);
+  margin: 0;
+  padding: 30px 16px;
+  color: var(--branco);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: var(--branco);
+  margin: 6px 0 8px;
+  font-size: 2.2rem;
+}
+
+.noivos {
+  text-align: left;
+  font-size: 70px;
+  color: #ffd900cf;
+
+}
+
+.mensagem {
+  text-align: center;
+  color: var(--texto-claro);
+  margin: 20px auto;
+  max-width: 900px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+/* Carrossel */
+.swiper {
+  width: 100%;
+  max-width: 1000px;
+  height: 380px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Personalização dos botões do carrossel */
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: var(--branco) !important;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--branco) !important;
+}
+
+/* Tabela de presentes */
+.table-wrap {
+  background: var(--branco);
+  border-radius: 8px;
+  overflow: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  margin-top: 22px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px; /* evita quebrar layout em desktop */
+  color: #333;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: left;
+  vertical-align: middle;
+  color: #333;
+}
+
+th {
+  background-color: var(--terracota-dark) !important;
+  color: var(--branco) !important;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--cinza-claro);
+}
+
+/* Coluna imagem */
+td img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Botão reservar */
+.btn-reservar {
+  display: inline-block;
+  padding: 8px 12px;
+  background: var(--terracota-dark);
+  color: var(--branco);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.btn-reservar:hover {
+  background: var(--terracota-darker);
+}
+
+/* Responsivo */
+@media (max-width: 760px) {
+  th,
+  td {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+  td img {
+    width: 60px;
+    height: 48px;
+  }
+  .mensagem {
+    font-size: 1rem;
+    padding: 0 8px;
+  }
+  .swiper {
+    height: 220px;
+  }
+}
