@@ -1,5 +1,5 @@
 :root {
-  --terracota: #e35336;
+  --terracota: #d35400;
   --terracota-dark: #bf2f1f;
   --terracota-darker: #9b2415;
   --branco: #ffffff;
@@ -35,18 +35,18 @@ h1 {
 .noivos {
   text-align: left;
   font-size: 70px;
-  color: #ffd900cf;
-
+  color: #ffffff;
+font-family: 'Great Vibes', cursive;
 }
 
 .mensagem {
-  text-align: center;
-  color: var(--texto-claro);
+ text-align: left;
+  color: #fae5d3;
   margin: 20px auto;
   max-width: 900px;
   font-size: 1.1rem;
-  line-height: 1.6;
   padding: 0 10px;
+  font-family: 'Lora', serif;
 }
 
 /* Carrossel */
