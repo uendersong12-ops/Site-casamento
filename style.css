@@ -45,6 +45,7 @@ font-family: 'Great Vibes', cursive;
   margin: 20px auto;
   max-width: 900px;
   font-size: 1.1rem;
+  line-height: 1.6;
   padding: 0 10px;
   font-family: 'Lora', serif;
 }
@@ -71,6 +72,17 @@ font-family: 'Great Vibes', cursive;
   height: 100%;
   object-fit: cover;
 }
+/* ajustes específicos por imagem */
+.img-1 { object-position: 50% 80%;}
+.img-2 { object-position: 50% 80%; }
+.img-3 { object-position: 50% 10%; }
+.img-4 { object-position: 50% 30%; }
+.img-5 { object-position: 50% 50%; }  
+.img-6 { object-position: 50% 50%; }
+.img-7 { object-position: 50% 10%; }
+.img-8 { object-position: 50% 20%; }
+.img-9 { object-position: 50% 60%; }
+.img-10 { object-position:50% 50%; }
 
 /* Personalização dos botões do carrossel */
 .swiper-button-next,
