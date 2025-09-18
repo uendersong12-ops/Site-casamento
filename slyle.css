@@ -29,35 +29,14 @@ body {
   object-fit: cover;   /* Preenche sem distorcer */
   border-radius: 12px; /* Cantos arredondados bonitos */
 }
-/* Botões de navegação do carrossel */
-.swiper-button-next,
-.swiper-button-prev {
-  color: rgba(255, 255, 255, 0.6); /* branco com 60% opacidade */
-  transition: color 0.3s ease;
-}
 .mySwiper {
-  --swiper-navigation-color: rgba(255,255,255,0.7);
-  --swiper-pagination-color: rgba(255,255,255,0.7);
-}
-
-/* Ao passar o mouse, mais forte */
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  color: rgba(255, 255, 255, 0.9);
+  --swiper-navigation-color: rgba(255, 255, 255, 0.8); /* setas brancas quase transparentes */
+  --swiper-pagination-color: rgba(255, 255, 255, 0.8); /* bullets brancos quase transparentes */
 }
 .mySwiper:hover {
-  --swiper-navigation-color: rgba(255,255,255,1);
-  --swiper-pagination-color: rgba(255,255,255,1);
+  --swiper-navigation-color: rgba(255, 255, 255, 1); /* mais forte no hover */
+  --swiper-pagination-color: rgba(255, 255, 255, 1);
 }
-.swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.6)   /* brancos meio transparentes */
-}
-
-.swiper-pagination-bullet-active {
-  background: rgba(255, 255, 255, 0.9)  /* mais forte quando ativo */
-}
-
-
 /* Lista de presentes */
 .lista-container {
   margin: 40px auto;
