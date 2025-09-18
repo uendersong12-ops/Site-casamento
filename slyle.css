@@ -42,11 +42,11 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.6); /* brancos meio transparentes */
+  background: rgba(255, 255, 255, 0.6) !important;  /* brancos meio transparentes */
 }
 
 .swiper-pagination-bullet-active {
-  background: rgba(255, 255, 255, 0.9); /* mais forte quando ativo */
+  background: rgba(255, 255, 255, 0.9) !important; /* mais forte quando ativo */
 }
 
 
