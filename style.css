@@ -73,7 +73,7 @@ font-family: 'Great Vibes', cursive;
   object-fit: cover;
 }
 /* ajustes específicos por imagem */
-.img-1 { object-position: 50% 80%;}
+.img-1 { object-position: 50% 90%;}
 .img-2 { object-position: 50% 80%; }
 .img-3 { object-position: 50% 10%; }
 .img-4 { object-position: 50% 30%; }

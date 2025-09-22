@@ -7,8 +7,8 @@
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora&display=swap" rel="stylesheet">
 
   <!-- Seu CSS local -->
   <link rel="stylesheet" href="style.css" />
@@ -19,49 +19,26 @@
 
     <!-- Carrossel -->
     <div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-
-    <div class="swiper-slide">
-      <img src="imagens/1.jpg" alt="1" class="img-1">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/5.jpg" alt="5" class="img-2">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/21.jpg" alt="21" class="img-3">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/24.jpg" alt="24" class="img-4">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/70.jpg" alt="70" class="img-5">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/80.jpg" alt="80" class="img-6">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/82.jpg" alt="82" class="img-7">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/88.jpg" alt="88" class="img-8">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/147.jpg" alt="147" class="img-9">
-    </div>
-    <div class="swiper-slide">
-      <img src="imagens/156.jpg" alt="156" class="img-10">
-    </div>
-
-  </div>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="imagens/1.jpg" alt="1"></div>
+        <div class="swiper-slide"><img src="imagens/5.jpg" alt="5"></div>
+        <div class="swiper-slide"><img src="imagens/21.jpg" alt="21"></div>
+        <div class="swiper-slide"><img src="imagens/24.jpg" alt="24"></div>
+        <div class="swiper-slide"><img src="imagens/70.jpg" alt="70"></div>
+        <div class="swiper-slide"><img src="imagens/80.jpg" alt="80"></div>
+        <div class="swiper-slide"><img src="imagens/82.jpg" alt="82"></div>
+        <div class="swiper-slide"><img src="imagens/88.jpg" alt="88"></div>
+        <div class="swiper-slide"><img src="imagens/147.jpg" alt="147"></div>
+        <div class="swiper-slide"><img src="imagens/156.jpg" alt="156"></div>
+      </div>
       <!-- navegação -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-
       <!-- paginação -->
       <div class="swiper-pagination"></div>
     </div>
 
-<div class="mensagem">
+    <div class="mensagem">
       Bem-vindo(a) à nossa Lista de Presentes! Desde já queremos agradecer, de coração, a cada um de vocês por fazer parte deste momento tão especial em nossas vidas. Para quem deseja nos presentear, criamos esta lista com muito carinho. Você pode escolher um dos itens sugeridos abaixo ou, se preferir, contribuir com qualquer valor. É importante lembrar que sua presença no nosso casamento é o maior presente que poderíamos receber e que não há qualquer obrigação de trazer um presente para participar. Muito obrigado por todo o carinho e apoio! 
     </div>
 
@@ -95,68 +72,62 @@
     });
   </script>
 
-  <!-- Script que carrega a lista, salva no localStorage e controla reservas -->
+  <!-- Script -->
   <script>
-    // lista completa
     let presentes = [
-      { nome: "Jogo de panelas", valor: "R$ 120,00", reservado: false, reservadoPor: "", imagem: "jogo de panelas.jpg" },
-      { nome: "Toalhas de banho", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "toalhas.jpg" },
-      { nome: "Faqueiro", valor: "R$ 90,00", reservado: false, reservadoPor: "", imagem: "faqueiro.jpg" },
-      { nome: "Jogo de cama", valor: "R$ 110,00", reservado: false, reservadoPor: "", imagem: "lencois.jpg" },
-      { nome: "Cafeteira elétrica", valor: "R$ 160,00", reservado: false, reservadoPor: "", imagem: "cafeteira.jpg" },
-      { nome: "Micro-ondas", valor: "R$ 500,00", reservado: false, reservadoPor: "", imagem: "microondas.jpg" },
-      { nome: "Geladeira", valor: "R$ 5.000,00", reservado: false, reservadoPor: "", imagem: "geladeira.jpg" },
-      { nome: "Fogão de Embutir", valor: "R$ 1.000,00", reservado: false, reservadoPor: "", imagem: "fogao.jpg" },
-      { nome: "Batedeira", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "batedeira.jpg" },
-      { nome: "Panela de pressão 10L", valor: "R$ 200,00", reservado: false, reservadoPor: "", imagem: "pressao10l.jpg" },
-      { nome: "Panela de pressão elétrica", valor: "R$ 400,00", reservado: false, reservadoPor: "", imagem: "pressaoeletrica.jpg" },
-      { nome: "Frigideira", valor: "R$ 45,00", reservado: false, reservadoPor: "", imagem: "frigideira.jpg" },
-      { nome: "Conjunto de talheres de inox", valor: "R$ 72,65", reservado: false, reservadoPor: "", imagem: "talheres.jpg" },
-      { nome: "Faqueiro 2x", valor: "R$ 72,65", reservado: false, reservadoPor: "", imagem: "faqueiro2.jpg" },
-      { nome: "Utensílios de silicone ou inox", valor: "R$ 100,00", reservado: false, reservadoPor: "", imagem: "utensilios.jpg" },
-      { nome: "Tábua de corte", valor: "R$ 30,00", reservado: false, reservadoPor: "", imagem: "tabua.jpg" },
-      { nome: "Travessa de vidro", valor: "R$ 35,00", reservado: false, reservadoPor: "", imagem: "travessa.jpg" },
-      { nome: "Espremedor de frutas", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "espremedor.jpg" },
-      { nome: "Sanduicheira", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "sanduicheira.jpg" },
-      { nome: "Conjunto de pratos 2x", valor: "R$ 100,00", reservado: false, reservadoPor: "", imagem: "pratos.jpg" },
-      { nome: "Copos 3x", valor: "R$ 30,00", reservado: false, reservadoPor: "", imagem: "copos.jpg" },
-      { nome: "Taças 2x", valor: "R$ 50,00", reservado: false, reservadoPor: "", imagem: "tacas.jpg" },
-      { nome: "Potes de vidro herméticos", valor: "R$ 89,90", reservado: false, reservadoPor: "", imagem: "poteshermeticos.jpg" },
-      { nome: "Potes de vidro", valor: "R$ 50,00", reservado: false, reservadoPor: "", imagem: "potes.jpg" },
-      { nome: "Jarra 4x", valor: "R$ 55,90", reservado: false, reservadoPor: "", imagem: "jarra.jpg" },
-      { nome: "Forma de bolo", valor: "R$ 27,00", reservado: false, reservadoPor: "", imagem: "formabolo.jpg" },
-      { nome: "Forma de pudim", valor: "R$ 27,00", reservado: false, reservadoPor: "", imagem: "formapudim.jpg" },
-      { nome: "Escorredor de louças", valor: "R$ 139,00", reservado: false, reservadoPor: "", imagem: "escorredor.jpg" },
-      { nome: "Lixeira (cozinha)", valor: "R$ 89,99", reservado: false, reservadoPor: "", imagem: "lixeiracozinha.jpg" },
-      { nome: "Lava e Seca", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "lavaeseca.jpg" },
-      { nome: "Varal de parede", valor: "R$ 75,00", reservado: false, reservadoPor: "", imagem: "varalparede.jpg" },
-      { nome: "Varal de chão", valor: "R$ 95,00", reservado: false, reservadoPor: "", imagem: "varalchao.jpg" },
-      { nome: "Robô aspirador", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "robo.jpg" },
-      { nome: "Aspirador vertical", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "aspirador.jpg" },
-      { nome: "Ferro de passar roupa", valor: "R$ 89,90", reservado: false, reservadoPor: "", imagem: "ferro.jpg" },
-      { nome: "Sofá retrátil (sem caixa)", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "sofa.jpg" },
-      { nome: "Mantas e almofadas para o sofá", valor: "R$ 150,00", reservado: false, reservadoPor: "", imagem: "mantas.jpg" },
-      { nome: "Painel de TV", valor: "R$ 600,00", reservado: false, reservadoPor: "", imagem: "painel.jpg" },
-      { nome: "TV", valor: "—", reservado: false, reservadoPor: "", imagem: "tv.jpg" },
-      { nome: "Mesa (4 lugares)", valor: "R$ 700,00", reservado: false, reservadoPor: "", imagem: "mesa.jpg" },
-      { nome: "Cama", valor: "R$ 3.000,00", reservado: false, reservadoPor: "", imagem: "cama.jpg" },
-      { nome: "Guarda-roupas", valor: "R$ 800,00", reservado: false, reservadoPor: "", imagem: "guarda.jpg" },
-      { nome: "Jogo de cama (3x)", valor: "R$ 80,00", reservado: false, reservadoPor: "", imagem: "jogocama.jpg" }
+      { nome: "Jogo de panelas", valor: "R$ 120,00", imagem: "jogo de panelas.jpg", maxAssinaturas: 1 },
+      { nome: "Toalhas de banho", valor: "R$ 80,00", imagem: "toalhas.jpg", maxAssinaturas: 1 },
+      { nome: "Faqueiro", valor: "R$ 90,00", imagem: "faqueiro.jpg", maxAssinaturas: 1 },
+      { nome: "Jogo de cama", valor: "R$ 110,00", imagem: "lencois.jpg", maxAssinaturas: 1 },
+      { nome: "Cafeteira elétrica", valor: "R$ 160,00", imagem: "cafeteira.jpg", maxAssinaturas: 1 },
+      { nome: "Micro-ondas", valor: "R$ 500,00", imagem: "microondas.jpg", maxAssinaturas: 1 },
+      { nome: "Geladeira", valor: "R$ 5.000,00", imagem: "geladeira.jpg", maxAssinaturas: 1 },
+      { nome: "Fogão de Embutir", valor: "R$ 1.000,00", imagem: "fogao.jpg", maxAssinaturas: 1 },
+      { nome: "Batedeira", valor: "R$ 80,00", imagem: "batedeira.jpg", maxAssinaturas: 1 },
+      { nome: "Panela de pressão 10L", valor: "R$ 200,00", imagem: "pressao10l.jpg", maxAssinaturas: 1 },
+      { nome: "Panela de pressão elétrica", valor: "R$ 400,00", imagem: "pressaoeletrica.jpg", maxAssinaturas: 1 },
+      { nome: "Frigideira", valor: "R$ 45,00", imagem: "frigideira.jpg", maxAssinaturas: 1 },
+      { nome: "Conjunto de talheres de inox", valor: "R$ 72,65", imagem: "talheres.jpg", maxAssinaturas: 1 },
+      { nome: "Faqueiro 2x", valor: "R$ 72,65", imagem: "faqueiro2.jpg", maxAssinaturas: 2 },
+      { nome: "Utensílios de silicone ou inox", valor: "R$ 100,00", imagem: "utensilios.jpg", maxAssinaturas: 1 },
+      { nome: "Tábua de corte", valor: "R$ 30,00", imagem: "tabua.jpg", maxAssinaturas: 1 },
+      { nome: "Travessa de vidro", valor: "R$ 35,00", imagem: "travessa.jpg", maxAssinaturas: 1 },
+      { nome: "Espremedor de frutas", valor: "R$ 80,00", imagem: "espremedor.jpg", maxAssinaturas: 1 },
+      { nome: "Sanduicheira", valor: "R$ 80,00", imagem: "sanduicheira.jpg", maxAssinaturas: 1 },
+      { nome: "Conjunto de pratos 2x", valor: "R$ 100,00", imagem: "pratos.jpg", maxAssinaturas: 2 },
+      { nome: "Copos 3x", valor: "R$ 30,00", imagem: "copos.jpg", maxAssinaturas: 3 },
+      { nome: "Taças 2x", valor: "R$ 50,00", imagem: "tacas.jpg", maxAssinaturas: 2 },
+      { nome: "Potes de vidro herméticos", valor: "R$ 89,90", imagem: "poteshermeticos.jpg", maxAssinaturas: 1 },
+      { nome: "Potes de vidro", valor: "R$ 50,00", imagem: "potes.jpg", maxAssinaturas: 1 },
+      { nome: "Jarra 4x", valor: "R$ 55,90", imagem: "jarra.jpg", maxAssinaturas: 4 },
+      { nome: "Forma de bolo", valor: "R$ 27,00", imagem: "formabolo.jpg", maxAssinaturas: 1 },
+      { nome: "Forma de pudim", valor: "R$ 27,00", imagem: "formapudim.jpg", maxAssinaturas: 1 },
+      { nome: "Escorredor de louças", valor: "R$ 139,00", imagem: "escorredor.jpg", maxAssinaturas: 1 },
+      { nome: "Lixeira (cozinha)", valor: "R$ 89,99", imagem: "lixeiracozinha.jpg", maxAssinaturas: 1 },
+      { nome: "Lava e Seca", valor: "R$ 3.000,00", imagem: "lavaeseca.jpg", maxAssinaturas: 1 },
+      { nome: "Varal de parede", valor: "R$ 75,00", imagem: "varalparede.jpg", maxAssinaturas: 1 },
+      { nome: "Varal de chão", valor: "R$ 95,00", imagem: "varalchao.jpg", maxAssinaturas: 1 },
+      { nome: "Robô aspirador", valor: "R$ 600,00", imagem: "robo.jpg", maxAssinaturas: 1 },
+      { nome: "Aspirador vertical", valor: "R$ 150,00", imagem: "aspirador.jpg", maxAssinaturas: 1 },
+      { nome: "Ferro de passar roupa", valor: "R$ 89,90", imagem: "ferro.jpg", maxAssinaturas: 1 },
+      { nome: "Sofá retrátil (sem caixa)", valor: "R$ 3.000,00", imagem: "sofa.jpg", maxAssinaturas: 1 },
+      { nome: "Mantas e almofadas para o sofá", valor: "R$ 150,00", imagem: "mantas.jpg", maxAssinaturas: 1 },
+      { nome: "Painel de TV", valor: "R$ 600,00", imagem: "painel.jpg", maxAssinaturas: 1 },
+      { nome: "TV", valor: "—", imagem: "tv.jpg", maxAssinaturas: 1 },
+      { nome: "Mesa (4 lugares)", valor: "R$ 700,00", imagem: "mesa.jpg", maxAssinaturas: 1 },
+      { nome: "Cama", valor: "R$ 3.000,00", imagem: "cama.jpg", maxAssinaturas: 1 },
+      { nome: "Guarda-roupas", valor: "R$ 800,00", imagem: "guarda.jpg", maxAssinaturas: 1 },
+      { nome: "Jogo de cama (3x)", valor: "R$ 80,00", imagem: "jogocama.jpg", maxAssinaturas: 3 }
     ];
 
-    // persistência local
     function carregarPresentes() {
       if (typeof window === "undefined") return;
       const dados = localStorage.getItem("presentes");
       if (dados) {
         try {
           const parsed = JSON.parse(dados);
-          if (Array.isArray(parsed) && parsed.length) {
-            presentes = parsed;
-          }
-        } catch (err) {
-          console.error("Erro ao parsear localStorage:", err);
-        }
+          if (Array.isArray(parsed) && parsed.length) presentes = parsed;
+        } catch (err) { console.error("Erro ao parsear localStorage:", err); }
       }
     }
 
@@ -165,7 +136,6 @@
       localStorage.setItem("presentes", JSON.stringify(presentes));
     }
 
-    // renderiza tabela
     function carregarTabela() {
       const tabela = document.getElementById("tabela-presentes");
       tabela.innerHTML = "";
@@ -190,11 +160,24 @@
 
         // status
         const tdStatus = document.createElement("td");
-        tdStatus.textContent = item.reservado ? "Reservado ✅" : "Disponível 🎁";
+        const max = Number(item.maxAssinaturas) || 1;
+        const atuais = item.assinaturas ? item.assinaturas.length : 0;
+        const disponiveis = max - atuais;
+
+        tdStatus.innerHTML = disponiveis > 0
+          ? `<div class="small">Disponível (${atuais}/${max})</div>`
+          : `<div class="small">Esgotado ✅</div>`;
+
+        if (item.assinaturas && item.assinaturas.length > 0) {
+          const divAss = document.createElement("div");
+          divAss.className = "assinantes";
+          divAss.textContent = "Assinantes: " + item.assinaturas.join(", ");
+          tdStatus.appendChild(divAss);
+        }
 
         // ação
         const tdAcao = document.createElement("td");
-        if (!item.reservado) {
+        if (disponiveis > 0) {
           const botao = document.createElement("button");
           botao.className = "btn-reservar";
           botao.textContent = "Reservar";
@@ -220,21 +203,17 @@
         alert("Reserva cancelada. Nome é obrigatório.");
         return;
       }
-      presentes[index].reservado = true;
-      presentes[index].reservadoPor = nome.trim();
+      if (!presentes[index].assinaturas) presentes[index].assinaturas = [];
+      const atuais = presentes[index].assinaturas.length;
+      if (atuais >= presentes[index].maxAssinaturas) {
+        alert("Este presente já atingiu o número máximo de assinaturas.");
+        return;
+      }
+      presentes[index].assinaturas.push(nome.trim());
       salvarPresentes();
       carregarTabela();
     }
 
-    // debug: ver reservas no console
-    function mostrarReservasPrivadas() {
-      console.log("Reservas privadas:");
-      presentes.forEach(p => {
-        if (p.reservado) console.log(`${p.nome} — ${p.reservadoPor}`);
-      });
-    }
-
-    // inicializa após DOM pronto
     document.addEventListener("DOMContentLoaded", () => {
       carregarPresentes();
       carregarTabela();
