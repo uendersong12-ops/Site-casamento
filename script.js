@@ -146,10 +146,10 @@ if (typeof window !== "undefined") {
   // === renderização ===
   function renderizarTudo() {
     carregarTabela();
-    carregarCarrossel();
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     carregarPresentes();
   });
 }
+
