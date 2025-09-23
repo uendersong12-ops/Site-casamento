@@ -29,7 +29,7 @@ if (typeof window !== "undefined") {
       const res = await fetch(`${API_URL}/assinar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: item.id })
+        body: JSON.stringify({ id: item.id, nome })
       });
 
       if (!res.ok) {
@@ -39,7 +39,7 @@ if (typeof window !== "undefined") {
       }
 
       const atualizado = await res.json();
-      alert(`Presente reservado! Restam ${atualizado.assinaturasrestantes}`);
+      alert(`Presente reservado! Restam ${atualizado.assinaturasRestantes}`);
 
       await carregarPresentes();
     } catch (err) {
@@ -83,14 +83,30 @@ if (typeof window !== "undefined") {
 
       const right = document.createElement("div");
       right.style.display = "flex";
-      right.style.alignItems = "center";
-      right.style.gap = "12px";
+      right.style.flexDirection = "column";
+      right.style.alignItems = "flex-end";
+      right.style.gap = "6px";
 
+      const reservasUsadas = item.maxAssinaturas - item.assinaturasRestantes;
       const status = document.createElement("div");
-      const reservasUsadas = item.maxassinaturas - item.assinaturasrestantes;
 
-      if (item.assinaturasrestantes > 0) {
-        status.textContent = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
+      if (item.assinaturasRestantes > 0) {
+        status.textContent = `Disponível (${reservasUsadas}/${item.maxAssinaturas})`;
+      } else {
+        status.textContent = `Esgotado (${reservasUsadas}/${item.maxAssinaturas})`;
+      }
+
+      right.appendChild(status);
+
+      if (item.assinaturas && item.assinaturas.length > 0) {
+        const assinantes = document.createElement("div");
+        assinantes.textContent = "Assinantes: " + item.assinaturas.join(", ");
+        assinantes.style.fontSize = "0.85rem";
+        assinantes.style.color = "#555";
+        right.appendChild(assinantes);
+      }
+
+      if (item.assinaturasRestantes > 0) {
         const btn = document.createElement("button");
         btn.textContent = "Reservar";
         btn.onclick = () => reservarPresente(index);
@@ -99,11 +115,7 @@ if (typeof window !== "undefined") {
         btn.style.color = "#fff";
         btn.style.border = "none";
         btn.style.borderRadius = "6px";
-        right.appendChild(status);
         right.appendChild(btn);
-      } else {
-        status.textContent = "Esgotado";
-        right.appendChild(status);
       }
 
       li.appendChild(left);
@@ -139,15 +151,23 @@ if (typeof window !== "undefined") {
       tdValor.textContent = item.valor;
 
       const tdStatus = document.createElement("td");
-      const reservasUsadas = item.maxassinaturas - item.assinaturasrestantes;
-      if (item.assinaturasrestantes > 0) {
-        tdStatus.textContent = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
-      } else {
-        tdStatus.textContent = "Esgotado";
+      const reservasUsadas = item.maxAssinaturas - item.assinaturasRestantes;
+
+      tdStatus.innerHTML = item.assinaturasRestantes > 0
+        ? `Disponível (${reservasUsadas}/${item.maxAssinaturas})`
+        : `Esgotado (${reservasUsadas}/${item.maxAssinaturas})`;
+
+      if (item.assinaturas && item.assinaturas.length > 0) {
+        const assinantes = document.createElement("div");
+        assinantes.textContent = "Assinantes: " + item.assinaturas.join(", ");
+        assinantes.style.fontSize = "0.85rem";
+        assinantes.style.color = "#555";
+        tdStatus.appendChild(document.createElement("br"));
+        tdStatus.appendChild(assinantes);
       }
 
       const tdAcao = document.createElement("td");
-      if (item.assinaturasrestantes > 0) {
+      if (item.assinaturasRestantes > 0) {
         const btn = document.createElement("button");
         btn.textContent = "Reservar";
         btn.className = "btn-reservar";
