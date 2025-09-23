@@ -82,7 +82,7 @@ if (typeof window !== "undefined") {
         tdStatus.innerHTML = `Esgotado ✅<br><small>(${reservasUsadas}/${item.maxassinaturas})</small>`;
       }
 
-      // Mostrar nomes dos assinantes
+      // ✅ Mostrar nomes dos assinantes
       if (item.assinantes && item.assinantes.length > 0) {
         tdStatus.innerHTML += `<br><small>Assinantes: ${item.assinantes.join(", ")}</small>`;
       }
@@ -127,19 +127,18 @@ if (typeof window !== "undefined") {
       wrapper.appendChild(slide);
     });
 
-    if (window.Swiper) {
-      if (window.mySwiper) {
-        try { window.mySwiper.update(); } catch (e) { console.warn(e); }
-      } else {
-        window.mySwiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          loop: true,
-          autoplay: { delay: 3000, disableOnInteraction: false },
-          pagination: { el: ".swiper-pagination", clickable: true },
-          navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        });
-      }
+    // ✅ Inicializar corretamente o Swiper sem resetar
+    if (!window.mySwiper) {
+      window.mySwiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      });
+    } else {
+      window.mySwiper.update();
     }
   }
 
