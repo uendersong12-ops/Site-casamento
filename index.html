@@ -20,16 +20,16 @@
     <!-- Carrossel -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="imagens/1.jpg" class="img-1" alt="1"></div>
-        <div class="swiper-slide"><img src="imagens/5.jpg" class="img-2" alt="5"></div>
-        <div class="swiper-slide"><img src="imagens/21.jpg" class="img-3" alt="21"></div>
-        <div class="swiper-slide"><img src="imagens/24.jpg" class="img-4" alt="24"></div>
-        <div class="swiper-slide"><img src="imagens/70.jpg" class="img-5" alt="70"></div>
-        <div class="swiper-slide"><img src="imagens/80.jpg" class="img-6" alt="80"></div>
-        <div class="swiper-slide"><img src="imagens/82.jpg" class="img-7" alt="82"></div>
-        <div class="swiper-slide"><img src="imagens/88.jpg" class="img-8" alt="88"></div>
-        <div class="swiper-slide"><img src="imagens/147.jpg" class="img-9" alt="147"></div>
-        <div class="swiper-slide"><img src="imagens/156.jpg" class="img-10" alt="156"></div>
+        <div class="swiper-slide"><img src="imagens/1.jpg" alt="1"></div>
+        <div class="swiper-slide"><img src="imagens/5.jpg" alt="5"></div>
+        <div class="swiper-slide"><img src="imagens/21.jpg" alt="21"></div>
+        <div class="swiper-slide"><img src="imagens/24.jpg" alt="24"></div>
+        <div class="swiper-slide"><img src="imagens/70.jpg" alt="70"></div>
+        <div class="swiper-slide"><img src="imagens/80.jpg" alt="80"></div>
+        <div class="swiper-slide"><img src="imagens/82.jpg" alt="82"></div>
+        <div class="swiper-slide"><img src="imagens/88.jpg" alt="88"></div>
+        <div class="swiper-slide"><img src="imagens/147.jpg" alt="147"></div>
+        <div class="swiper-slide"><img src="imagens/156.jpg" alt="156"></div>
       </div>
       <!-- navegação -->
       <div class="swiper-button-next"></div>
@@ -72,81 +72,35 @@
     });
   </script>
 
-  <!-- Script -->
+  <!-- Script da lista -->
   <script>
-    let presentes = [
-      { nome: "Jogo de panelas", valor: "R$ 120,00", imagem: "jogo de panelas.jpg", maxAssinaturas: 1 },
-      { nome: "Toalhas de banho", valor: "R$ 80,00", imagem: "toalhas.jpg", maxAssinaturas: 1 },
-      { nome: "Faqueiro", valor: "R$ 90,00", imagem: "faqueiro.jpg", maxAssinaturas: 1 },
-      { nome: "Jogo de cama", valor: "R$ 110,00", imagem: "lencois.jpg", maxAssinaturas: 1 },
-      { nome: "Cafeteira elétrica", valor: "R$ 160,00", imagem: "cafeteira.jpg", maxAssinaturas: 1 },
-      { nome: "Micro-ondas", valor: "R$ 500,00", imagem: "microondas.jpg", maxAssinaturas: 1 },
-      { nome: "Geladeira", valor: "R$ 5.000,00", imagem: "geladeira.jpg", maxAssinaturas: 1 },
-      { nome: "Fogão de Embutir", valor: "R$ 1.000,00", imagem: "fogao.jpg", maxAssinaturas: 1 },
-      { nome: "Batedeira", valor: "R$ 80,00", imagem: "batedeira.jpg", maxAssinaturas: 1 },
-      { nome: "Panela de pressão 10L", valor: "R$ 200,00", imagem: "pressao10l.jpg", maxAssinaturas: 1 },
-      { nome: "Panela de pressão elétrica", valor: "R$ 400,00", imagem: "pressaoeletrica.jpg", maxAssinaturas: 1 },
-      { nome: "Frigideira", valor: "R$ 45,00", imagem: "frigideira.jpg", maxAssinaturas: 1 },
-      { nome: "Conjunto de talheres de inox", valor: "R$ 72,65", imagem: "talheres.jpg", maxAssinaturas: 1 },
-      { nome: "Faqueiro 2x", valor: "R$ 72,65", imagem: "faqueiro2.jpg", maxAssinaturas: 2 },
-      { nome: "Utensílios de silicone ou inox", valor: "R$ 100,00", imagem: "utensilios.jpg", maxAssinaturas: 1 },
-      { nome: "Tábua de corte", valor: "R$ 30,00", imagem: "tabua.jpg", maxAssinaturas: 1 },
-      { nome: "Travessa de vidro", valor: "R$ 35,00", imagem: "travessa.jpg", maxAssinaturas: 1 },
-      { nome: "Espremedor de frutas", valor: "R$ 80,00", imagem: "espremedor.jpg", maxAssinaturas: 1 },
-      { nome: "Sanduicheira", valor: "R$ 80,00", imagem: "sanduicheira.jpg", maxAssinaturas: 1 },
-      { nome: "Conjunto de pratos 2x", valor: "R$ 100,00", imagem: "pratos.jpg", maxAssinaturas: 2 },
-      { nome: "Copos 3x", valor: "R$ 30,00", imagem: "copos.jpg", maxAssinaturas: 3 },
-      { nome: "Taças 2x", valor: "R$ 50,00", imagem: "tacas.jpg", maxAssinaturas: 2 },
-      { nome: "Potes de vidro herméticos", valor: "R$ 89,90", imagem: "poteshermeticos.jpg", maxAssinaturas: 1 },
-      { nome: "Potes de vidro", valor: "R$ 50,00", imagem: "potes.jpg", maxAssinaturas: 1 },
-      { nome: "Jarra 4x", valor: "R$ 55,90", imagem: "jarra.jpg", maxAssinaturas: 4 },
-      { nome: "Forma de bolo", valor: "R$ 27,00", imagem: "formabolo.jpg", maxAssinaturas: 1 },
-      { nome: "Forma de pudim", valor: "R$ 27,00", imagem: "formapudim.jpg", maxAssinaturas: 1 },
-      { nome: "Escorredor de louças", valor: "R$ 139,00", imagem: "escorredor.jpg", maxAssinaturas: 1 },
-      { nome: "Lixeira (cozinha)", valor: "R$ 89,99", imagem: "lixeiracozinha.jpg", maxAssinaturas: 1 },
-      { nome: "Lava e Seca", valor: "R$ 3.000,00", imagem: "lavaeseca.jpg", maxAssinaturas: 1 },
-      { nome: "Varal de parede", valor: "R$ 75,00", imagem: "varalparede.jpg", maxAssinaturas: 1 },
-      { nome: "Varal de chão", valor: "R$ 95,00", imagem: "varalchao.jpg", maxAssinaturas: 1 },
-      { nome: "Robô aspirador", valor: "R$ 600,00", imagem: "robo.jpg", maxAssinaturas: 1 },
-      { nome: "Aspirador vertical", valor: "R$ 150,00", imagem: "aspirador.jpg", maxAssinaturas: 1 },
-      { nome: "Ferro de passar roupa", valor: "R$ 89,90", imagem: "ferro.jpg", maxAssinaturas: 1 },
-      { nome: "Sofá retrátil (sem caixa)", valor: "R$ 3.000,00", imagem: "sofa.jpg", maxAssinaturas: 1 },
-      { nome: "Mantas e almofadas para o sofá", valor: "R$ 150,00", imagem: "mantas.jpg", maxAssinaturas: 1 },
-      { nome: "Painel de TV", valor: "R$ 600,00", imagem: "painel.jpg", maxAssinaturas: 1 },
-      { nome: "TV", valor: "—", imagem: "tv.jpg", maxAssinaturas: 1 },
-      { nome: "Mesa (4 lugares)", valor: "R$ 700,00", imagem: "mesa.jpg", maxAssinaturas: 1 },
-      { nome: "Cama", valor: "R$ 3.000,00", imagem: "cama.jpg", maxAssinaturas: 1 },
-      { nome: "Guarda-roupas", valor: "R$ 800,00", imagem: "guarda.jpg", maxAssinaturas: 1 },
-      { nome: "Jogo de cama (3x)", valor: "R$ 80,00", imagem: "jogocama.jpg", maxAssinaturas: 3 }
-    ];
+    const API_URL = "https://site-casamento-backend.onrender.com";
+    const IMG_PREFIX = "imagens/";
 
-    function carregarPresentes() {
-      if (typeof window === "undefined") return;
-      const dados = localStorage.getItem("presentes");
-      if (dados) {
-        try {
-          const parsed = JSON.parse(dados);
-          if (Array.isArray(parsed) && parsed.length) presentes = parsed;
-        } catch (err) { console.error("Erro ao parsear localStorage:", err); }
+    let presentes = [];
+
+    async function carregarPresentes() {
+      try {
+        const res = await fetch(`${API_URL}/presentes`);
+        presentes = await res.json();
+        carregarTabela();
+      } catch (err) {
+        console.error("Erro ao carregar presentes:", err);
+        alert("Não foi possível carregar a lista de presentes.");
       }
-    }
-
-    function salvarPresentes() {
-      if (typeof window === "undefined") return;
-      localStorage.setItem("presentes", JSON.stringify(presentes));
     }
 
     function carregarTabela() {
       const tabela = document.getElementById("tabela-presentes");
       tabela.innerHTML = "";
 
-      presentes.forEach((item, index) => {
+      presentes.forEach(item => {
         const tr = document.createElement("tr");
 
         // imagem
         const tdImagem = document.createElement("td");
         const img = document.createElement("img");
-        img.src = "imagens/" + (item.imagem || "placeholder.jpg");
+        img.src = IMG_PREFIX + (item.imagem || "placeholder.jpg");
         img.alt = item.nome;
         tdImagem.appendChild(img);
 
@@ -156,32 +110,19 @@
 
         // valor
         const tdValor = document.createElement("td");
-        tdValor.textContent = item.valor;
+        tdValor.textContent = item.valor ?? "—";
 
         // status
         const tdStatus = document.createElement("td");
-        const max = Number(item.maxAssinaturas) || 1;
-        const atuais = item.assinaturas ? item.assinaturas.length : 0;
-        const disponiveis = max - atuais;
-
-        tdStatus.innerHTML = disponiveis > 0
-          ? `<div class="small">Disponível (${atuais}/${max})</div>`
-          : `<div class="small">Esgotado ✅</div>`;
-
-        if (item.assinaturas && item.assinaturas.length > 0) {
-          const divAss = document.createElement("div");
-          divAss.className = "assinantes";
-          divAss.textContent = "Assinantes: " + item.assinaturas.join(", ");
-          tdStatus.appendChild(divAss);
-        }
+        tdStatus.textContent = item.assinaturasrestantes > 0 ? "Disponível" : "Esgotado ✅";
 
         // ação
         const tdAcao = document.createElement("td");
-        if (disponiveis > 0) {
+        if (item.assinaturasrestantes > 0) {
           const botao = document.createElement("button");
           botao.className = "btn-reservar";
           botao.textContent = "Reservar";
-          botao.onclick = () => reservarPresente(index);
+          botao.onclick = () => reservarPresente(item.id);
           tdAcao.appendChild(botao);
         } else {
           tdAcao.textContent = "—";
@@ -197,27 +138,31 @@
       });
     }
 
-    function reservarPresente(index) {
+    async function reservarPresente(id) {
       const nome = prompt("Digite seu nome para reservar este presente:");
-      if (!nome || !nome.trim()) {
-        alert("Reserva cancelada. Nome é obrigatório.");
-        return;
+      if (!nome || !nome.trim()) return;
+
+      try {
+        const res = await fetch(`${API_URL}/assinar`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id })
+        });
+
+        if (!res.ok) {
+          const erro = await res.text();
+          alert("Erro: " + erro);
+          return;
+        }
+
+        await carregarPresentes();
+      } catch (err) {
+        console.error("Erro ao assinar presente:", err);
       }
-      if (!presentes[index].assinaturas) presentes[index].assinaturas = [];
-      const atuais = presentes[index].assinaturas.length;
-      if (atuais >= presentes[index].maxAssinaturas) {
-        alert("Este presente já atingiu o número máximo de assinaturas.");
-        return;
-      }
-      presentes[index].assinaturas.push(nome.trim());
-      salvarPresentes();
-      carregarTabela();
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      carregarPresentes();
-      carregarTabela();
-    });
+    document.addEventListener("DOMContentLoaded", carregarPresentes);
   </script>
 </body>
 </html>
+
