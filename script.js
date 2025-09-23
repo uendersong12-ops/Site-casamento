@@ -1,5 +1,4 @@
 if (typeof window !== "undefined") {
-  // 🔹 Coloque aqui a URL EXATA do backend publicado no Render
   const API_URL = "https://site-casamento-backend.onrender.com";
   const IMG_PREFIX = "imagens/";
 
@@ -30,7 +29,7 @@ if (typeof window !== "undefined") {
       const res = await fetch(`${API_URL}/assinar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: item.id }) // ID vem do banco
+        body: JSON.stringify({ id: item.id })
       });
 
       if (!res.ok) {
@@ -42,7 +41,6 @@ if (typeof window !== "undefined") {
       const atualizado = await res.json();
       alert(`Presente reservado! Restam ${atualizado.assinaturasrestantes}`);
 
-      // 🔥 Atualiza lista após reserva
       await carregarPresentes();
     } catch (err) {
       console.error("Erro ao assinar presente:", err);
@@ -90,9 +88,9 @@ if (typeof window !== "undefined") {
 
       const status = document.createElement("div");
       const reservasUsadas = item.maxassinaturas - item.assinaturasrestantes;
-      status.textContent = `${reservasUsadas}/${item.maxassinaturas} reservas`;
 
       if (item.assinaturasrestantes > 0) {
+        status.textContent = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
         const btn = document.createElement("button");
         btn.textContent = "Reservar";
         btn.onclick = () => reservarPresente(index);
@@ -104,6 +102,7 @@ if (typeof window !== "undefined") {
         right.appendChild(status);
         right.appendChild(btn);
       } else {
+        status.textContent = "Esgotado";
         right.appendChild(status);
       }
 
@@ -141,7 +140,11 @@ if (typeof window !== "undefined") {
 
       const tdStatus = document.createElement("td");
       const reservasUsadas = item.maxassinaturas - item.assinaturasrestantes;
-      tdStatus.textContent = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
+      if (item.assinaturasrestantes > 0) {
+        tdStatus.textContent = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
+      } else {
+        tdStatus.textContent = "Esgotado";
+      }
 
       const tdAcao = document.createElement("td");
       if (item.assinaturasrestantes > 0) {
@@ -213,5 +216,3 @@ if (typeof window !== "undefined") {
   // Debug opcional
   window.presenteData = () => presentes;
 }
-
-
