@@ -1,5 +1,6 @@
 if (typeof window !== "undefined") {
-  const API_URL = "https://site-casamento-backend.onrender.com"; // troque pelo link real do Render
+  // 🔹 Coloque aqui a URL EXATA do backend publicado no Render
+  const API_URL = "https://site-casamento-backend.onrender.com";
   const IMG_PREFIX = "imagens/";
 
   let presentes = [];
@@ -18,38 +19,36 @@ if (typeof window !== "undefined") {
 
   // === Assinar presente no backend ===
   async function reservarPresente(index) {
-  const item = presentes[index];
-  const nome = prompt("Digite seu nome para reservar este presente:");
-  if (!nome || !nome.trim()) {
-    alert("Reserva cancelada. Nome é obrigatório.");
-    return;
-  }
-
-  try {
-    const res = await fetch(`${API_URL}/assinar`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: item.id }) // ID vem do banco
-    });
-
-    if (!res.ok) {
-      const erro = await res.text();
-      alert("Erro: " + erro);
+    const item = presentes[index];
+    const nome = prompt("Digite seu nome para reservar este presente:");
+    if (!nome || !nome.trim()) {
+      alert("Reserva cancelada. Nome é obrigatório.");
       return;
     }
 
-    const atualizado = await res.json();
-    alert(`Presente reservado! Restam ${atualizado.assinaturasrestantes}`);
+    try {
+      const res = await fetch(`${API_URL}/assinar`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: item.id }) // ID vem do banco
+      });
 
-    // 🔥 Aguarda atualizar lista depois da reserva
-    await carregarPresentes();
+      if (!res.ok) {
+        const erro = await res.text();
+        alert("Erro: " + erro);
+        return;
+      }
 
-  } catch (err) {
-    console.error("Erro ao assinar presente:", err);
-    alert("Erro ao registrar a reserva.");
+      const atualizado = await res.json();
+      alert(`Presente reservado! Restam ${atualizado.assinaturasrestantes}`);
+
+      // 🔥 Atualiza lista após reserva
+      await carregarPresentes();
+    } catch (err) {
+      console.error("Erro ao assinar presente:", err);
+      alert("Erro ao registrar a reserva.");
+    }
   }
-}
-
 
   // === lista em UL ===
   function carregarListaUL() {
