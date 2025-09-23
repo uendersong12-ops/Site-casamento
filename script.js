@@ -39,7 +39,7 @@ if (typeof window !== "undefined") {
       }
 
       const atualizado = await res.json();
-      alert(`Presente reservado! Restam ${atualizado.assinaturasRestantes}`);
+      alert(`Presente reservado! Restam ${atualizado.assinaturasrestantes}`);
 
       await carregarPresentes();
     } catch (err) {
@@ -48,85 +48,9 @@ if (typeof window !== "undefined") {
     }
   }
 
-  // === lista em UL ===
-  function carregarListaUL() {
-    const ul = document.getElementById("lista-presentes");
-    if (!ul) return;
-    ul.innerHTML = "";
-
-    presentes.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.style.display = "flex";
-      li.style.alignItems = "center";
-      li.style.justifyContent = "space-between";
-      li.style.padding = "10px 0";
-      li.style.borderBottom = "1px solid #eee";
-
-      const left = document.createElement("div");
-      left.style.display = "flex";
-      left.style.alignItems = "center";
-      left.style.gap = "12px";
-
-      const img = document.createElement("img");
-      img.src = IMG_PREFIX + (item.imagem || "placeholder.jpg");
-      img.alt = item.nome;
-      img.style.width = "72px";
-      img.style.height = "54px";
-      img.style.objectFit = "cover";
-      img.style.borderRadius = "6px";
-
-      const info = document.createElement("div");
-      info.innerHTML = `<strong>${item.nome}</strong><div style="font-size:0.95rem;color:#666">${item.valor}</div>`;
-
-      left.appendChild(img);
-      left.appendChild(info);
-
-      const right = document.createElement("div");
-      right.style.display = "flex";
-      right.style.flexDirection = "column";
-      right.style.alignItems = "flex-end";
-      right.style.gap = "6px";
-
-      const reservasUsadas = item.maxAssinaturas - item.assinaturasRestantes;
-      const status = document.createElement("div");
-
-      if (item.assinaturasRestantes > 0) {
-        status.textContent = `Disponível (${reservasUsadas}/${item.maxAssinaturas})`;
-      } else {
-        status.textContent = `Esgotado (${reservasUsadas}/${item.maxAssinaturas})`;
-      }
-
-      right.appendChild(status);
-
-      if (item.assinaturas && item.assinaturas.length > 0) {
-        const assinantes = document.createElement("div");
-        assinantes.textContent = "Assinantes: " + item.assinaturas.join(", ");
-        assinantes.style.fontSize = "0.85rem";
-        assinantes.style.color = "#555";
-        right.appendChild(assinantes);
-      }
-
-      if (item.assinaturasRestantes > 0) {
-        const btn = document.createElement("button");
-        btn.textContent = "Reservar";
-        btn.onclick = () => reservarPresente(index);
-        btn.style.padding = "8px 12px";
-        btn.style.background = "#d2691e";
-        btn.style.color = "#fff";
-        btn.style.border = "none";
-        btn.style.borderRadius = "6px";
-        right.appendChild(btn);
-      }
-
-      li.appendChild(left);
-      li.appendChild(right);
-      ul.appendChild(li);
-    });
-  }
-
   // === tabela de presentes ===
   function carregarTabela() {
-    const tbody = document.querySelector("#tabela-presentes tbody");
+    const tbody = document.querySelector("#tabela-presentes");
     if (!tbody) return;
 
     tbody.innerHTML = "";
@@ -151,23 +75,20 @@ if (typeof window !== "undefined") {
       tdValor.textContent = item.valor;
 
       const tdStatus = document.createElement("td");
-      const reservasUsadas = item.maxAssinaturas - item.assinaturasRestantes;
+      const reservasUsadas = item.maxassinaturas - item.assinaturasrestantes;
+      if (item.assinaturasrestantes > 0) {
+        tdStatus.innerHTML = `Disponível (${reservasUsadas}/${item.maxassinaturas})`;
+      } else {
+        tdStatus.innerHTML = `Esgotado ✅<br><small>(${reservasUsadas}/${item.maxassinaturas})</small>`;
+      }
 
-      tdStatus.innerHTML = item.assinaturasRestantes > 0
-        ? `Disponível (${reservasUsadas}/${item.maxAssinaturas})`
-        : `Esgotado (${reservasUsadas}/${item.maxAssinaturas})`;
-
-      if (item.assinaturas && item.assinaturas.length > 0) {
-        const assinantes = document.createElement("div");
-        assinantes.textContent = "Assinantes: " + item.assinaturas.join(", ");
-        assinantes.style.fontSize = "0.85rem";
-        assinantes.style.color = "#555";
-        tdStatus.appendChild(document.createElement("br"));
-        tdStatus.appendChild(assinantes);
+      // Mostrar nomes dos assinantes
+      if (item.assinantes && item.assinantes.length > 0) {
+        tdStatus.innerHTML += `<br><small>Assinantes: ${item.assinantes.join(", ")}</small>`;
       }
 
       const tdAcao = document.createElement("td");
-      if (item.assinaturasRestantes > 0) {
+      if (item.assinaturasrestantes > 0) {
         const btn = document.createElement("button");
         btn.textContent = "Reservar";
         btn.className = "btn-reservar";
@@ -225,14 +146,10 @@ if (typeof window !== "undefined") {
   // === renderização ===
   function renderizarTudo() {
     carregarTabela();
-    carregarListaUL();
     carregarCarrossel();
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     carregarPresentes();
   });
-
-  // Debug opcional
-  window.presenteData = () => presentes;
 }

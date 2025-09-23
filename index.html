@@ -20,16 +20,16 @@
     <!-- Carrossel -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="imagens/1.jpg" alt="1"></div>
-        <div class="swiper-slide"><img src="imagens/5.jpg" alt="5"></div>
-        <div class="swiper-slide"><img src="imagens/21.jpg" alt="21"></div>
-        <div class="swiper-slide"><img src="imagens/24.jpg" alt="24"></div>
-        <div class="swiper-slide"><img src="imagens/70.jpg" alt="70"></div>
-        <div class="swiper-slide"><img src="imagens/80.jpg" alt="80"></div>
-        <div class="swiper-slide"><img src="imagens/82.jpg" alt="82"></div>
-        <div class="swiper-slide"><img src="imagens/88.jpg" alt="88"></div>
-        <div class="swiper-slide"><img src="imagens/147.jpg" alt="147"></div>
-        <div class="swiper-slide"><img src="imagens/156.jpg" alt="156"></div>
+        <div class="swiper-slide"><img src="imagens/1.jpg" class="img-1" alt="1"></div>
+        <div class="swiper-slide"><img src="imagens/5.jpg" class="img-2" alt="5"></div>
+        <div class="swiper-slide"><img src="imagens/21.jpg" class="img-3" alt="21"></div>
+        <div class="swiper-slide"><img src="imagens/24.jpg" class="img-4" alt="24"></div>
+        <div class="swiper-slide"><img src="imagens/70.jpg" class="img-5" alt="70"></div>
+        <div class="swiper-slide"><img src="imagens/80.jpg" class="img-6" alt="80"></div>
+        <div class="swiper-slide"><img src="imagens/82.jpg" class="img-7" alt="82"></div>
+        <div class="swiper-slide"><img src="imagens/88.jpg" class="img-8" alt="88"></div>
+        <div class="swiper-slide"><img src="imagens/147.jpg" class="img-9" alt="147"></div>
+        <div class="swiper-slide"><img src="imagens/156.jpg" class="img-10" alt="156"></div>
       </div>
       <!-- navegação -->
       <div class="swiper-button-next"></div>
@@ -62,107 +62,9 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Inicializa o Swiper -->
-  <script>
-    const swiper = new Swiper('.mySwiper', {
-      loop: true,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    });
-  </script>
-
-  <!-- Script da lista -->
-  <script>
-    const API_URL = "https://site-casamento-backend.onrender.com";
-    const IMG_PREFIX = "imagens/";
-
-    let presentes = [];
-
-    async function carregarPresentes() {
-      try {
-        const res = await fetch(`${API_URL}/presentes`);
-        presentes = await res.json();
-        carregarTabela();
-      } catch (err) {
-        console.error("Erro ao carregar presentes:", err);
-        alert("Não foi possível carregar a lista de presentes.");
-      }
-    }
-
-    function carregarTabela() {
-      const tabela = document.getElementById("tabela-presentes");
-      tabela.innerHTML = "";
-
-      presentes.forEach(item => {
-        const tr = document.createElement("tr");
-
-        // imagem
-        const tdImagem = document.createElement("td");
-        const img = document.createElement("img");
-        img.src = IMG_PREFIX + (item.imagem || "placeholder.jpg");
-        img.alt = item.nome;
-        tdImagem.appendChild(img);
-
-        // nome
-        const tdNome = document.createElement("td");
-        tdNome.textContent = item.nome;
-
-        // valor
-        const tdValor = document.createElement("td");
-        tdValor.textContent = item.valor ?? "—";
-
-        // status
-        const tdStatus = document.createElement("td");
-        tdStatus.textContent = item.assinaturasrestantes > 0 ? "Disponível" : "Esgotado ✅";
-
-        // ação
-        const tdAcao = document.createElement("td");
-        if (item.assinaturasrestantes > 0) {
-          const botao = document.createElement("button");
-          botao.className = "btn-reservar";
-          botao.textContent = "Reservar";
-          botao.onclick = () => reservarPresente(item.id);
-          tdAcao.appendChild(botao);
-        } else {
-          tdAcao.textContent = "—";
-        }
-
-        tr.appendChild(tdImagem);
-        tr.appendChild(tdNome);
-        tr.appendChild(tdValor);
-        tr.appendChild(tdStatus);
-        tr.appendChild(tdAcao);
-
-        tabela.appendChild(tr);
-      });
-    }
-
-    async function reservarPresente(id) {
-      const nome = prompt("Digite seu nome para reservar este presente:");
-      if (!nome || !nome.trim()) return;
-
-      try {
-        const res = await fetch(`${API_URL}/assinar`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id })
-        });
-
-        if (!res.ok) {
-          const erro = await res.text();
-          alert("Erro: " + erro);
-          return;
-        }
-
-        await carregarPresentes();
-      } catch (err) {
-        console.error("Erro ao assinar presente:", err);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", carregarPresentes);
-  </script>
+  <!-- Script da lista (agora externo) -->
+  <script src="script.js"></script>
 </body>
 </html>
+
 
