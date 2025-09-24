@@ -21,7 +21,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// Rota inicial de teste
+// 🏠 Rota inicial de teste
 app.get("/", (req, res) => {
   res.send("API Lista de Presentes funcionando ✅");
 });
