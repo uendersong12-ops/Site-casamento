@@ -82,11 +82,6 @@ if (typeof window !== "undefined") {
         tdStatus.innerHTML = `Esgotado ✅<br><small>(${reservasUsadas}/${item.maxassinaturas})</small>`;
       }
 
-      // ✅ Mostrar nomes dos assinantes
-      if (item.assinantes && item.assinantes.length > 0) {
-        tdStatus.innerHTML += `<br><small>Assinantes: ${item.assinantes.join(", ")}</small>`;
-      }
-
       const tdAcao = document.createElement("td");
       if (item.assinaturasrestantes > 0) {
         const btn = document.createElement("button");
