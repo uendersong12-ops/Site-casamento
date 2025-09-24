@@ -9,6 +9,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// 🔹 Forçar charset UTF-8 em todas as respostas JSON
+app.use((req, res, next) => {
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  next();
+});
+
 // 🔹 Conexão com Postgres no Render
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
